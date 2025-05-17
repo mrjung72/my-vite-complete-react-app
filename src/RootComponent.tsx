@@ -1,4 +1,4 @@
-import React from 'react'
+// src/RootComponent.tsx
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
@@ -11,10 +11,11 @@ const RootComponent: React.FC = () => {
     return (
         <Router>
             <Routes>
-                <Route path="*" element={<NotFoundPage />} />
                 <Route path={ROUTES.HOMEPAGE_ROUTE} element={<HomePage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />            </Routes>
+                <Route path={ROUTES.LOGIN_ROUTE} element={<LoginPage />} />
+                <Route path={ROUTES.REGISTER_ROUTE} element={<RegisterPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
         </Router>
     )
 }

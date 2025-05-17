@@ -1,4 +1,5 @@
 export const ROUTES = {
     HOMEPAGE_ROUTE: '/',
-    LOGINPAGE_ROUTE: '/login',
+    LOGIN_ROUTE: '/login',
+    REGISTER_ROUTE: '/register',
 }

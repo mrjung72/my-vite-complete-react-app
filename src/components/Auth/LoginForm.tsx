@@ -16,9 +16,12 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleLogin}>
-      <h2>Login</h2>
-      <input type="text" placeholder="Username" required />
-      <input type="password" placeholder="Password" required />
+      <div>
+      ID : <input type="text" placeholder="Username" required />
+      </div>
+      <div>
+      PW : <input type="password" placeholder="Password" required />
+      </div>
       <button type="submit">Login</button>
     </form>
   );

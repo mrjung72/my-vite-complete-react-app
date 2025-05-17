@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Layout from '../components/Layout'
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
+    <Layout>
     <div style={{ padding: '2rem' }}>
       <h2>회원가입</h2>
       <form onSubmit={handleSubmit}>
@@ -71,6 +73,8 @@ const RegisterPage: React.FC = () => {
         <button type="submit">가입하기</button>
       </form>
     </div>
+      
+    </Layout>
   );
 };
 
