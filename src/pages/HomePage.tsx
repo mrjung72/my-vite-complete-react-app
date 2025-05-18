@@ -15,6 +15,7 @@ const HomePage: React.FC = () => {
                 <Link to="/login" style={{ marginRight: '1rem' }}>로그인</Link>
                 <Link to="/register" style={{ marginRight: '1rem' }}>회원가입</Link>
                 <Link to="/users" style={{ marginRight: '1rem' }}>회원리스트</Link>
+                <Link to="/upload-csv" style={{ marginRight: '1rem' }}>csv파일 업로드</Link>
             </div>
             <DateDisplay />
         </div>
