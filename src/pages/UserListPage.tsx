@@ -1,5 +1,6 @@
 // src/pages/UserListPage.tsx
 import React, { useEffect, useState } from 'react'
+import Layout from '../components/Layout'
 
 type User = {
     id: number
@@ -21,14 +22,14 @@ const UserListPage = () => {
     }, [])
 
     return (
-        <div>
+        <Layout>
             <h2>회원 목록</h2>
             <ul>
                 {users.map((user) => (
                     <li key={user.id}>{user.name} ({user.email})</li>
                 ))}
             </ul>
-        </div>
+        </Layout>
     )
 }
 
