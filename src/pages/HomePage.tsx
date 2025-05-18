@@ -1,6 +1,7 @@
 import React from 'react'
 import DateDisplay from '../components/DateDisplay'
 import { useAppSelector } from '../store/store'
+import Layout from '../components/Layout'
 import { Link } from 'react-router-dom'
 
 const HomePage: React.FC = () => {
@@ -8,7 +9,7 @@ const HomePage: React.FC = () => {
     const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn)
     const loading = useAppSelector((state) => state.ui.loading)
     return (
-        <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+        <Layout>
             <h1 style={{ fontSize: '4em' }}>좋은 아침</h1>
             <p>로그인 상태: {isLoggedIn ? '로그인됨' : '로그아웃됨'}</p>
             <div style={{ marginTop: '1rem' }}>
@@ -18,7 +19,7 @@ const HomePage: React.FC = () => {
                 <Link to="/upload-csv" style={{ marginRight: '1rem' }}>csv파일 업로드</Link>
             </div>
             <DateDisplay />
-        </div>
+        </Layout>
     )
 }
 

@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
+import Header from './components/Header'
 import RegisterPage from './pages/RegisterPage'
 import UserListPage from './pages/UserListPage'
 import CsvUploadPage from './pages/CsvUploadPage'
@@ -12,6 +13,7 @@ import './styles/main.sass'
 const RootComponent: React.FC = () => {
     return (
         <Router>
+            <Header />
             <Routes>
                 <Route path={ROUTES.HOMEPAGE_ROUTE} element={<HomePage />} />
                 <Route path={ROUTES.LOGIN_ROUTE} element={<LoginPage />} />

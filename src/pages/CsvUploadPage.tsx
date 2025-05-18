@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Layout from '../components/Layout'
 
 const CsvUploadPage = () => {
     const [file, setFile] = useState<File | null>(null)
@@ -40,14 +41,14 @@ const CsvUploadPage = () => {
     }
 
     return (
-        <div>
+        <Layout>
             <h2>CSV 업로드</h2>
             <input type="file" accept=".csv" onChange={handleFileChange} />
             <button onClick={handleUpload} disabled={uploading}>
                 {uploading ? '업로드 중...' : '업로드'}
             </button>
             {message && <p>{message}</p>}
-        </div>
+        </Layout>
     )
 }
 
