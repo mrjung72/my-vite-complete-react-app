@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../redux/authSlice';
+import { login } from '../store/slices/authSlice';
 
 // src/pages/LoginPage.tsx
 import Layout from '../components/Layout'
@@ -69,7 +69,8 @@ const LoginPage: React.FC = () => {
             onChange={e => setPassword(e.target.value)}
             required
           />
-        </div>            <button type="submit">Login</button>
+        </div>            
+        <button type="submit">Login</button>
             </form>
         </Layout>
     )

@@ -1,6 +1,7 @@
 // src/pages/UserListPage.tsx
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
+import styles from './UserListPage.module.css'
 
 type User = {
     id: number

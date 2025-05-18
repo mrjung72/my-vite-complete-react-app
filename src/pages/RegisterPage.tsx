@@ -6,6 +6,7 @@ const RegisterPage: React.FC = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('')
+    const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -17,6 +18,7 @@ const RegisterPage: React.FC = () => {
 
         if (res.ok) {
             alert('회원가입 성공')
+            navigate('/login');
         } else {
             alert('회원가입 실패')
         }

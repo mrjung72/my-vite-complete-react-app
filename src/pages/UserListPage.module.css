@@ -1,0 +1,17 @@
+.container {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.userList {
+    list-style: none;
+    padding: 0;
+}
+
+.userItem {
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
