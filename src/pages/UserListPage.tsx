@@ -4,8 +4,9 @@ import Layout from '../components/Layout'
 
 type User = {
     id: number
-    name: string
+    username: string
     email: string
+    createdAt: string
 }
 
 const UserListPage = () => {
@@ -26,7 +27,7 @@ const UserListPage = () => {
             <h2>회원 목록</h2>
             <ul>
                 {users.map((user) => (
-                    <li key={user.id}>{user.name} ({user.email})</li>
+                    <li key={user.id}>{user.username} ({user.email}) on {user.createdAt}</li>
                 ))}
             </ul>
         </Layout>
