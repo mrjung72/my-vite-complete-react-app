@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface AuthState {
-  token: string | null
   isLoggedIn: boolean
+  username: string | null
 }
 
 const initialState: AuthState = {
-  token: null,
   isLoggedIn: false,
+  username: null
 }
 
 const authSlice = createSlice({
@@ -15,15 +15,16 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login(state, action: PayloadAction<string>) {
-      state.token = action.payload
       state.isLoggedIn = true
+      state.username = action.payload
     },
     logout(state) {
-      state.token = null
       state.isLoggedIn = false
-    },
-  },
+      state.username = null
+    }
+  }
 })
 
 export const { login, logout } = authSlice.actions
 export default authSlice.reducer
+

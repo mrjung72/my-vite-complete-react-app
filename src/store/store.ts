@@ -1,14 +1,12 @@
 import { ThunkDispatch, UnknownAction, combineReducers, configureStore } from '@reduxjs/toolkit'
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage
-import data from './data'
-import user from './user'
-import auth from './auth'
-import ui from './ui'
+import user from './slices/userSlice'
+import auth from './slices/authSlice'
+import ui from './slices/uiSlice'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 const rootReducer = combineReducers({
-    data,
     user,
     auth,
     ui
@@ -18,7 +16,7 @@ const persistedReducer = persistReducer(
     {
         key: 'root',
         storage,
-        whitelist: ['data', 'user', 'auth', 'ui']
+        whitelist: ['user', 'auth', 'ui']
     },
     rootReducer
 )
