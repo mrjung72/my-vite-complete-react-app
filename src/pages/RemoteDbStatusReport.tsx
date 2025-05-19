@@ -1,48 +1,45 @@
-// src/pages/RemoteDbStatusReport.tsx
-import React, { useEffect, useState } from 'react';
+// RemoteDbStatusReport.tsx
+import React, { useEffect, useState } from 'react'
 
-interface Status {
-  ip: string;
-  status: string;
-  error?: string;
+const RemoteDbStatusReport = () => {
+    const [servers, setServers] = useState([])
+    const [statuses, setStatuses] = useState<{ [id: number]: any }>({})
+
+    useEffect(() => {
+        fetch('http://localhost:4000/api/server-list')
+            .then(res => res.json())
+            .then(setServers)
+    }, [])
+
+    const checkStatus = async (id: number) => {
+        setStatuses(prev => ({ ...prev, [id]: { loading: true } }))
+        const res = await fetch(`http://localhost:4000/api/server-status/${id}`)
+        const data = await res.json()
+        setStatuses(prev => ({ ...prev, [id]: data }))
+    }
+
+    return (
+        <div>
+            <h2>서버 상태 확인</h2>
+            <ul>
+                {servers.map((server: any) => (
+                    <li key={server.id}>
+                        <div>
+                            <strong>{server.ip}</strong>
+                            <button onClick={() => checkStatus(server.id)}>확인</button>
+                            {statuses[server.id]?.loading && <span> 확인 중...</span>}
+                            {statuses[server.id]?.status === 'connected' && (
+                                <div>✅ 연결됨 - {statuses[server.id].version}</div>
+                            )}
+                            {statuses[server.id]?.status === 'error' && (
+                                <div>❌ 오류: {statuses[server.id].error}</div>
+                            )}
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
 }
 
-
-const RemoteDbStatusReport: React.FC = () => {
-
-    const [data, setData] = useState<Status[]>([]);
-
-  useEffect(() => {
-    fetch('http://localhost:4000/api/remotedb-status')
-    .then((res) => res.json())
-    .then(setData)
-    .catch(console.error);
-  }, []);
-
-
-  return (
-    <div>
-      <h2>DB 접속 상태 리포트</h2>
-      <table border={1}>
-        <thead>
-          <tr>
-            <th>서버 IP</th>
-            <th>접속 상태</th>
-            <th>에러 메시지</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(({ ip, status, error }) => (
-            <tr key={ip}>
-              <td>{ip}</td>
-              <td style={{ color: status === '성공' ? 'green' : 'red' }}>{status}</td>
-              <td>{error || '-'}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
-export default RemoteDbStatusReport;
+export default RemoteDbStatusReport
