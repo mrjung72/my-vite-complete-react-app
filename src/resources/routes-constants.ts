@@ -4,4 +4,5 @@ export const ROUTES = {
     REGISTER_ROUTE: '/register',
     USER_ROUTE: '/users',
     UPLOAD_CSV_ROUTE: '/upload-csv',
+    REMOTEDB_STATUS_ROUTE: '/remotedb-status',
 }

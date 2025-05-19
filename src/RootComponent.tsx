@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import RegisterPage from './pages/RegisterPage'
 import UserListPage from './pages/UserListPage'
 import CsvUploadPage from './pages/CsvUploadPage'
+import RemoteDBStatus from './pages/RemoteDbStatusReport'
 import NotFoundPage from './pages/NotFoundPage'
 import { ROUTES } from './resources/routes-constants'
 import './styles/main.sass'
@@ -21,6 +22,7 @@ const RootComponent: React.FC = () => {
                 <Route path={ROUTES.REGISTER_ROUTE} element={<RegisterPage />} />
                 <Route path={ROUTES.USER_ROUTE} element={<UserListPage />} />
                 <Route path={ROUTES.UPLOAD_CSV_ROUTE} element={<CsvUploadPage />} />
+                <Route path={ROUTES.REMOTEDB_STATUS_ROUTE} element={<RemoteDBStatus />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <Footer />
