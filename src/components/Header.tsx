@@ -20,6 +20,7 @@ const Header: React.FC = () => {
             <nav>
                 <Link to="/" style={{ marginRight: '1rem' }}>🏠</Link>
             </nav>
+            <div style={{ fontSize: '1em' }}><b>좋은 아침</b></div>
             {isLoggedIn && (
                 <div>
                     👤 <strong>{username}</strong> 님

@@ -10,17 +10,24 @@ const HomePage: React.FC = () => {
     const loading = useAppSelector((state) => state.ui.loading)
     return (
         <Layout>
-            <h1 style={{ fontSize: '4em' }}>좋은 아침</h1>
-            <div style={{ marginTop: '1rem' }}>
-                <Link to="/remotedb-status" style={{ marginRight: '1rem' }}>원격서버목록</Link>
+            <DateDisplay />
+            <div style={{ marginTop: '1rem' }}>                
+                <ul style={{ listStyleType: 'none', padding: 0 }}>
+                    <Link to="/remotedb-status" style={{ marginRight: '1rem' }}>원격서버목록</Link>
+                </ul>
+            
             {isLoggedIn && (
-                <Link to="/users" style={{ marginRight: '1rem' }}>회원리스트</Link>
+                <ul style={{ listStyleType: 'none', padding: 0 }}>
+                    <Link to="/users" style={{ marginRight: '1rem' }}>회원리스트</Link>
+                </ul>
+
             )}
             {!isLoggedIn && (
-                <Link to="/upload-csv" style={{ marginRight: '1rem' }}>csv파일 업로드</Link>
+                <ul style={{ listStyleType: 'none', padding: 0 }}>
+                    <Link to="/upload-csv" style={{ marginRight: '1rem' }}>서버정보 csv파일 업로드</Link>
+                </ul>
             )}
             </div>
-            <DateDisplay />
         </Layout>
     )
 }
