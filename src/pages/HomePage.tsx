@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
             <div style={{ marginTop: '1rem' }}>
                 <Link to="/users" style={{ marginRight: '1rem' }}>회원리스트</Link>
                 <Link to="/upload-csv" style={{ marginRight: '1rem' }}>csv파일 업로드</Link>
-                <Link to="/remotedb-status" style={{ marginRight: '1rem' }}>원격DB 상태체크</Link>
+                <Link to="/remotedb-status" style={{ marginRight: '1rem' }}>원격서버목록</Link>
             </div>
             <DateDisplay />
         </Layout>
