@@ -1,8 +1,8 @@
-// RemoteDbStatusReport.tsx
+// RemoteServerListPage.tsx
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const RemoteDbStatusReport = () => {
+const RemoteServerListPage = () => {
     const [servers, setServers] = useState([])
     const [statuses, setStatuses] = useState<{ [id: number]: any }>({})
 
@@ -46,4 +46,4 @@ const RemoteDbStatusReport = () => {
     )
 }
 
-export default RemoteDbStatusReport
+export default RemoteServerListPage
