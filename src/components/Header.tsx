@@ -27,9 +27,6 @@ const Header: React.FC = () => {
                 </div>
             )}
             {!isLoggedIn && (
-                <Link to="/register">회원가입</Link>
-            )}
-            {!isLoggedIn && (
                 <Link to="/login">로그인</Link>
             )}
         </header>

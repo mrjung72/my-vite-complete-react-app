@@ -41,7 +41,6 @@ const RemoteDbStatusReport = () => {
                 ))}
             </ul>
             <ul>
-            <Link to="/upload-csv" style={{ marginRight: '1rem' }}>csv파일 업로드</Link>
             </ul>
         </div>
     )
