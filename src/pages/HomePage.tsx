@@ -10,7 +10,6 @@ const HomePage: React.FC = () => {
     const loading = useAppSelector((state) => state.ui.loading)
     return (
         <Layout>
-            <DateDisplay />
             <div style={{ marginTop: '1rem' }}>                
                 <ul style={{ listStyleType: 'none', padding: 0 }}>
                     <Link to="/remotedb-status" style={{ marginRight: '1rem' }}>원격서버목록</Link>
