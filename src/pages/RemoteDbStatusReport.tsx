@@ -1,5 +1,6 @@
 // RemoteDbStatusReport.tsx
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const RemoteDbStatusReport = () => {
     const [servers, setServers] = useState([])
@@ -21,6 +22,7 @@ const RemoteDbStatusReport = () => {
     return (
         <div>
             <h2>서버 상태 확인</h2>
+            <Link to="/upload-csv" style={{ marginRight: '1rem' }}>csv파일 업로드</Link>
             <ul>
                 {servers.map((server: any) => (
                     <li key={server.id}>

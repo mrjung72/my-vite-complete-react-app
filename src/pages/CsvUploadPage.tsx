@@ -33,7 +33,7 @@ const handleUpload = async () => {
 
             const data = await response.json()
             if (data.success) {
-                setMessage(`${data.message} ${data.uploadedCount}개의 서버 정보가 업로드되었습니다.`)
+                setMessage(`${data.message}`)
             }   
             else {
                 setMessage('[ERROR] ' + data.error)
@@ -42,7 +42,7 @@ const handleUpload = async () => {
 
         } catch (err) {
             console.error(err)
-            setMessage('업로드 중 오류가 발생했습니다.')
+            setMessage(`업로드 중 오류가 발생했습니다. ${err as string}`)   
         } finally {
             setUploading(false)
         }
