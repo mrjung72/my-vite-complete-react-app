@@ -22,12 +22,12 @@ const RemoteDbStatusReport = () => {
     return (
         <div>
             <h2>서버 상태 확인</h2>
-            <Link to="/upload-csv" style={{ marginRight: '1rem' }}>csv파일 업로드</Link>
             <ul>
                 {servers.map((server: any) => (
                     <li key={server.id}>
                         <div>
-                            <strong>{server.ip}</strong>
+                            <span>{server.ip}:{server.port}</span>&nbsp;-&nbsp;
+                            <span>[{server.corp_id}]&nbsp;{server.name}&nbsp;({server.env_type})</span>&nbsp;
                             <button onClick={() => checkStatus(server.id)}>확인</button>
                             {statuses[server.id]?.loading && <span> 확인 중...</span>}
                             {statuses[server.id]?.status === 'connected' && (
@@ -39,6 +39,9 @@ const RemoteDbStatusReport = () => {
                         </div>
                     </li>
                 ))}
+            </ul>
+            <ul>
+            <Link to="/upload-csv" style={{ marginRight: '1rem' }}>csv파일 업로드</Link>
             </ul>
         </div>
     )
